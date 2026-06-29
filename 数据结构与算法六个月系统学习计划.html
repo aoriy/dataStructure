@@ -535,6 +535,11 @@ function setChecked(id, val) {
 }
 
 function updateWeek() {
+  // save each week checkbox state to localStorage
+  WEEK_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) setChecked(id, el.checked);
+  });
   // sync each month checkbox
   DATA.forEach(m => {
     const monthCheck = document.getElementById(m.id);
